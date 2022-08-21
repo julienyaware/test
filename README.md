@@ -21,13 +21,10 @@ Simple CSS for  simple styling
 
 useState for state management
 
-### `Assumptions made`
-
-We are skipping authentication so we are assuming a user is logged in
 
 ### `Instructions`
 
 The Answers to the questions can be found in the root file Answers.txt
 
-the test code for the pseudo code can be found in the components folder. The mainPage contains a shallow solution for react questions 1 & 2 while the SetDivHeight is the higher order component test code for the last react question.
+the excecutable code to test whether the pseudo code could work can be found in the components folder. The mainPage contains a shallow solution for react questions 1 & 2 while the SetDivHeight is the higher order component test code for the last react question.
 
