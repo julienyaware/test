@@ -21,9 +21,6 @@ Simple CSS for  simple styling
 
 useState for state management
 
-### `Assumptions made`
-
-We are skipping authentication so we are assuming a user is logged in
 
 ### `Instructions`
 
