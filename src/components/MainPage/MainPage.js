@@ -1,18 +1,22 @@
 import React, { useEffect, useRef, useState } from 'react';
 import styles from './MainPage.css';
-import updateDivHeight from '../updateDivHeight';
+import setDivHeight from '../setDivHeight';
 
-function MainPage() {
+function MainPage({manuallySetHeight}) {
     const [liveWidth, setLiveWidth] = useState(window.innerWidth);
-    const [newDivHeight, setNewDivHeight] = useState('');
+    const [newDivHeight, setNewDivHeight] = useState(manuallySetHeight);
     const divHeightRef = useRef(null);
 
+
     useEffect(() => {
+    
         const detectBrowserSizeChange = () => {
             setLiveWidth(window.innerWidth)
         }
 
-        window.addEventListener('resize', detectBrowserSizeChange)
+        window.addEventListener('resize', detectBrowserSizeChange);
+        divHeightRef.current.style.height =  newDivHeight + 'px';
+       
 
     }, [liveWidth])
 
@@ -29,17 +33,16 @@ function MainPage() {
             <form>
                 <label>Enter the new height for the current div : </label>
                 <input
-                    type='text'
+                    type='number'
                     value={newDivHeight}
                     onChange={changeDivheight}
                 />
 
             </form>
-
         </div>
     );
 }
 
+// example of manually setting div height using HOC
 
-
-export default MainPage;
+export default setDivHeight(MainPage,200);
