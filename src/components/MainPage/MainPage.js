@@ -5,7 +5,7 @@ import updateDivHeight from '../updateDivHeight';
 function MainPage() {
     const [liveWidth, setLiveWidth] = useState(window.innerWidth);
     const [newDivHeight, setNewDivHeight] = useState('');
-   
+    const divHeightRef = useRef(null);
 
     useEffect(() => {
         const detectBrowserSizeChange = () => {
