@@ -1,0 +1,125 @@
+REACT FOCUS
+
+1. What is your favourite new javascript feature and why?
+-> One of my  favorite new Javascript features include promise.any() because I can use it to pass in several promises and it returns the first
+one to be fullfilled rather than waiting for all promises to be completed to get the results.
+
+
+2.Explain an interesting way in which you have used this javascript feature.
+->I have used it multipe times when I need to make multiple calls when rendering a component that depended on atleast one results
+of the calls to be rendered first as the component waits fo other calls to be loaded.
+
+3. Is there any difference between regular function syntax and the shorter arrow function syntax? (Write the answer in your own words)
+-> Aside from the difference in syntax arrow functions can not use this keyword  while you can use it in regular functions.
+Another major difference is that regular function can be used as a constructor using new while the same cannot be applied to a regular function
+as shown below.
+
+function Node(next, value) {
+    this.node = node ;
+    this.value = value ;
+}
+
+const newNode = new Node('Fresh node')
+
+4. What is the difference between ‘myFunctionCall(++foo)’   and  ‘myFunctionCall(foo++)’
+-> myFunctionCall(++foo) will take in the argument as foo with increment of one already done that is (foo +1) 
+while myFunctionCall(foo++) will take in the value of foo vefore the increment.
+
+
+5. In your own words, explain what a javascript ‘class’ is and how it differs from a function.
+->A class is a blueprint of an object, its basically like a template that can be used to create an object.
+   while a function is a group of statements that do a task.The difference between a class and function their syntax during definition.
+   A class also needs to be instantiated to create an instance of an object using new keyword while functions are invoked by calling them using()
+
+
+Css:
+
+6. In your own words, explain css specificity.
+-> CSS  specificity is a set of rules that the browser uses to decides the measurement of relevance of the type or order of css selectors that have been applied to an 
+element . For example if an element has an Id and a class selector, the ID which is consider to be of a higher rank will have its style applied first.
+
+
+7.In your own words, explain, what is ‘!important’ in css.  Also how does it work?  Are there any special circumstances when using it, where it’s behaviour might not be what you expect?
+-> !important overrides CSS specificity rules in that the style marked !important will be applied .It is however not advisable to use because it disrupts CSS nature and maintenance and
+debugging might become difficult if !important is used severally. It might fail to work if the same CSS selector is written later after it with a different style.This might override it.
+
+8.What is your prefered layout system: inline-block, floating + clearing, flex, grid, other?  And why?
+->I prefer using grid beacause it makes it easier to partition  the overall layout of the page into a grid/table 
+ then I use flex to position items within the grids.This makes the stylic clearer and maintenance easier.
+
+9. Are negative margins legal and what do they do (margin: -20px)?
+-> Negative margins pulls surrounding content towards itself. They are legal but I avoid them becasue of maintenance and debugging may become difficult as you go along.
+It also does not feel like clean implementation to me . I would explore other things like positio;absolute etc before I use ngative margins.
+Negative margins also lead to issues of having collapsed margins.
+
+
+10. If a <div/> has no margin or other styling and a <p/> tag inside of it has a margin top of some kind, the margin from the <p/> tag will show up on the div instead (the margin will show above the div not inside of it), why is this?  What are the different things that can be done to prevent it?
+->This may happen because the margins may combine to form a single margin/collapsed margin thus why it shows on the outside of the div.This can be fixed by adding overflow:hidden to the outer div.
+It can aslo be prevented  by adding spacing between siblings by using padding.
+
+
+Unit tests:
+
+11. What technologies do you use to unit test your react components?
+->I mostly use react-testing-library and Jest for testing react components
+
+12. Are there any pitfalls associated with this technology that have caused you difficulty in the past?
+-> Knowing when and when to not mock fetching data because on one side fetching data will be expensive during testing and mocking it in several
+places will make the testing less reliable because its a mock and not the reality of whats happening on the app.
+
+13. How do you test in your unit tests to see if the correct properties are being passed to child components.
+-> I use render to render the app component and then I use getByText() for non promises and findByText for promises to check if the prop is in the document
+using toBeeInDocument()
+
+React test step1:
+
+14. Create a react component that has a <div/> with a border.
+Inside this <div/> should be a <span/> that displays the ‘live’ width of the browser window at all times.  Keep in mind that the size of the window could easily be changed by the user and you should reflect this.
+
+-> PSEUDO code 
+
+// Create a component in components folder inside src named MainPage
+// create state for live width
+// create useEffect hook that rerenders when state changes
+// monitor resizing of window within the useffect hook
+// create div 
+// add span inside div and display live wideth inside
+
+
+15. React test step2:
+
+Inside the <div/> you created in the previous step, add a text input that, as a number is entered into it, uses that number to set the height of the div itself in pixels, live as you update the text field (keypress not change event).
+
+-> PSEUDO code
+// add state for the input height.
+//create form with input 
+// use onChange input to set input height state
+// use the height to set the height of new div
+//use input ref to adjust height based on state change of height
+
+16. React test step3:
+
+Add the following code to your project root (same project as in step 2, but add the code in the global / window space):  
+
+    Let divHeight;
+    window.setDivHeight = (height) => divHeight = height;
+
+Add a HOC for your div component that allows you to set the height of your <div/> component from the previous steps by calling that external function.
+
+If you do not know what a HOC is or how to create one, that is also fine, just mention that in your answer and instead create a parent component that can still do this (allow you to call that function ‘setDivHeight’ in order to set the height of the div manually.
+
+Bare in mind that when the height of the div is forcefully set like this, the text fields value should also update to reflect this and should still carry on working as normal (user can continue to modify its value).
+
+-> PSEUDO CODE
+// Create another HOC called stDivHeight that will take in a component and return an updated component.
+// Transfer the logic of setting the div height to the height typed in by user that was in step 2
+// call  the HOC component and pass in current component to get a final component that displays this logic
+
+
+
+
+
+
+
+
+
